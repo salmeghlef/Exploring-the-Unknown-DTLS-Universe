@@ -48,4 +48,4 @@ jobs:
         app-name: 'dtls'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_62c8eba8cdca4f72aa1267c671257f2c }}
-        images: 'ghcr.io/${{ secrets.AzureAppService_ContainerUsername_75e8b5fa71ac4e96a66b9c47bfad1a2e }}/main:${{ github.sha }}'
+        images: 'ghcr.io/${{ secrets.azureappservice_containerusername_75e8b5fa71ac4e96a66b9c47bfad1a2e }}/main:${{ github.sha }}'
