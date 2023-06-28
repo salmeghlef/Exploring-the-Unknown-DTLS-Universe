@@ -23,14 +23,14 @@ jobs:
       uses: docker/login-action@v2
       with:
         registry: https://ghcr.io/
-        username: ${{ secrets.AzureAppService_ContainerUsername_250fed2bc19a40eeb3bd013c12b37984 }}
-        password: ${{ secrets.AzureAppService_ContainerPassword_dffe62bcc0dd4bbaa6308f56a73eebcb }}
+        username: ${{ secrets.AzureAppService_ContainerUsername_a57cedbcbeb249a5b6e541b648cd448e }}
+        password: ${{ secrets.AzureAppService_ContainerPassword_5bec6c9d26dc491f9a2389bc6dbfddf5 }}
 
     - name: Build and push container image to registry
       uses: docker/build-push-action@v3
       with:
         push: true
-        tags: ghcr.io/${{ secrets.AzureAppService_ContainerUsername_250fed2bc19a40eeb3bd013c12b37984 }}/mcr.microsoft.com/appsvc/staticsite:${{ github.sha }}
+        tags: ghcr.io/${{ secrets.AzureAppService_ContainerUsername_a57cedbcbeb249a5b6e541b648cd448e }}/dockerfile-openss:${{ github.sha }}
         file: ./Dockerfile
 
   deploy:
@@ -47,5 +47,5 @@ jobs:
       with:
         app-name: 'dtls'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_c2b3a9f4b8fd417f8e57eb06cdc01e39 }}
-        images: 'ghcr.io/${{ secrets.AzureAppService_ContainerUsername_250fed2bc19a40eeb3bd013c12b37984 }}/mcr.microsoft.com/appsvc/staticsite:${{ github.sha }}'
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_e010a3ae324742cbbb3e301c5c807b81 }}
+        images: 'ghcr.io/${{ secrets.AzureAppService_ContainerUsername_a57cedbcbeb249a5b6e541b648cd448e }}/dockerfile-openss:${{ github.sha }}'
